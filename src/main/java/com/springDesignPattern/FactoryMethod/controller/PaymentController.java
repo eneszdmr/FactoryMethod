@@ -1,6 +1,10 @@
 package com.springDesignPattern.FactoryMethod.controller;
 
+import com.springDesignPattern.FactoryMethod.dto.PaymentRequest;
 import com.springDesignPattern.FactoryMethod.factory.PaymentFactory;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -14,6 +18,9 @@ public class PaymentController {
         this.paymentFactory = paymentFactory;
     }
 
-
+    @PostMapping
+    public ResponseEntity<String> payment(@RequestBody PaymentRequest paymentRequest) {
+        return ResponseEntity.ok(paymentFactory.executePayment(paymentRequest));
+    }
 
 }
