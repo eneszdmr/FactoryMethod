@@ -4,10 +4,10 @@ import com.springDesignPattern.FactoryMethod.strategy.PaymentStrategy;
 import org.springframework.stereotype.Service;
 
 
-@Service
+@Service("wireTransfer")
 public class WireTransferPaymentStrategy implements PaymentStrategy {
     @Override
     public String pay(String orderId, Double amount, String paymentType) {
-        return "payment done with wire transfer";
+        return "payment done with wire transfer     " + orderId + " " + amount + " " + paymentType;
     }
 }
